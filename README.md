@@ -1,0 +1,1 @@
+# nanosmp-static
