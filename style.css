@@ -1,0 +1,219 @@
+:root{
+    --black: #07080a;
+    --blue: #9fc3db;
+    --blue-bright: #c7e3f2;
+    --blue-dim: #6f8b9c;
+    --hairline: rgba(159,195,219,0.35);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--black);
+    color: var(--blue);
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    font-weight: 200;
+  }
+
+  /* Background texture — your uploaded gilded blackstone tile, repeated at native 64x64px.
+     image-rendering keeps the pixel art crisp instead of blurring on repeat. */
+  body{
+    background-image:
+      linear-gradient(rgba(7,8,10,0.87), rgba(7,8,10,0.87)),
+      url('background.png');
+    background-repeat: repeat;
+    background-size: 64px 64px;
+    image-rendering: pixelated;
+  }
+
+  .page{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 32px 120px;
+  }
+
+  header{
+    margin-bottom: 88px;
+  }
+
+  h1{
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin: 0;
+    color: var(--blue-bright);
+    opacity: 0;
+    animation: reveal 1.1s ease-out forwards, ember 5s ease-in-out 1.1s infinite;
+  }
+
+  section{
+    padding-top: 56px;
+    border-top: 1px solid var(--hairline);
+    margin-top: 56px;
+  }
+
+  section:first-of-type{
+    border-top: 1px solid var(--hairline);
+  }
+
+  h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--blue-bright);
+    margin: 0 0 28px;
+  }
+
+  p{
+    line-height: 1.7;
+    font-size: 1.08rem;
+    font-weight: 200;
+    margin: 0 0 16px;
+    color: var(--blue);
+  }
+
+  .join-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 1.08rem;
+  }
+
+  .join-line:last-child{
+    border-bottom: none;
+  }
+
+  .join-label{
+    color: var(--blue-dim);
+  }
+
+  .join-value{
+    color: var(--blue-bright);
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+  }
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.02rem;
+    border: 1px solid var(--hairline);
+  }
+
+  th, td{
+    text-align: left;
+    padding: 13px 14px;
+    border: 1px solid var(--hairline);
+    font-weight: 300;
+  }
+
+  th{
+    color: var(--blue-bright);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  td.name{
+    width: 34%;
+    white-space: nowrap;
+  }
+
+  td.name a{
+    color: var(--blue-bright);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  td.name a:hover{
+    border-bottom-color: var(--blue-bright);
+    color: #ffffff;
+  }
+
+  td.desc{
+    color: var(--blue-dim);
+  }
+
+  ol.steps{
+    margin: 0;
+    padding-left: 22px;
+    line-height: 1.9;
+    font-size: 1.08rem;
+  }
+
+  ol.steps li{
+    padding-left: 8px;
+    margin-bottom: 10px;
+  }
+
+  ol.steps a{
+    color: var(--blue-bright);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  ol.steps a:hover{
+    border-bottom-color: var(--blue-bright);
+    color: #ffffff;
+  }
+
+  footer{
+    margin-top: 88px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+    color: var(--blue-dim);
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 560px){
+    .page{ padding: 64px 20px 80px; }
+    h1{ font-size: 2.4rem; }
+
+    section{ padding-top: 40px; margin-top: 40px; }
+    h2{ margin-bottom: 20px; }
+
+    .join-line{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 12px 0;
+    }
+
+    table{ font-size: 0.92rem; }
+
+    th, td{ padding: 10px; }
+
+    td.name{
+      white-space: normal;
+      width: auto;
+    }
+  }
+  @keyframes reveal{
+    from{ opacity: 0; transform: translateY(6px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes ember{
+    0%, 100%{ text-shadow: 0 0 10px rgba(199,227,242,0.15); }
+    50%{ text-shadow: 0 0 18px rgba(199,227,242,0.45); }
+  }
+
+  section{
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  section.in{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    h1{ animation: none; opacity: 1; }
+    section{ opacity: 1; transform: none; transition: none; }
+  }
