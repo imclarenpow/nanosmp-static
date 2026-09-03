@@ -45,8 +45,6 @@
     letter-spacing: 0.04em;
     margin: 0;
     color: var(--blue-bright);
-    opacity: 0;
-    animation: reveal 1.1s ease-out forwards, ember 5s ease-in-out 1.1s infinite;
   }
 
   section{
@@ -196,11 +194,6 @@
   @keyframes reveal{
     from{ opacity: 0; transform: translateY(6px); }
     to{ opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes ember{
-    0%, 100%{ text-shadow: 0 0 10px rgba(199,227,242,0.15); }
-    50%{ text-shadow: 0 0 18px rgba(199,227,242,0.45); }
   }
 
   section{
