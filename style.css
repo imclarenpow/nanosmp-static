@@ -25,6 +25,7 @@
       url('background.png');
     background-repeat: repeat;
     background-size: 64px 64px;
+    background-attachment: fixed;
     image-rendering: pixelated;
   }
 
