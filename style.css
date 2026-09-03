@@ -12,7 +12,10 @@
   --font-size-h2: 2rem;
 }
 
-*{ box-sizing: border-box; }
+*{
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
 
 html, body{
   margin: 0;
